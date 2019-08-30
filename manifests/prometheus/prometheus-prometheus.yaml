@@ -35,7 +35,9 @@ spec:
   version: v2.11.0
   storage:
     volumeClaimTemplate:
-    - metadata:
+      apiVersion: v1
+      kind: PersistentVolumeClaim
+      metadata:
        name: prometheus-database
       spec:
        accessModes: [ "ReadWriteOnce" ]
