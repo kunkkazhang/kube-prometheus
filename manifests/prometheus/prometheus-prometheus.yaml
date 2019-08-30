@@ -11,11 +11,13 @@ spec:
     - name: alertmanager-main
       namespace: monitoring
       port: web
-  baseImage: uhub.service.ucloud.cn/uk8s_public/prometheus:latest
+  baseImage: uhub.service.ucloud.cn/uk8s_public/prometheus
   nodeSelector:
     kubernetes.io/os: linux
   podMonitorSelector: {}
   replicas: 2
+  secrets:
+  - etcd-certs
   resources:
     requests:
       memory: 400Mi
@@ -31,3 +33,13 @@ spec:
   serviceMonitorNamespaceSelector: {}
   serviceMonitorSelector: {}
   version: v2.11.0
+  storage:
+    volumeClaimTemplate:
+    - metadata:
+       name: prometheus-database
+      spec:
+       accessModes: [ "ReadWriteOnce" ]
+       storageClassName: "udisk-ssd"
+       resources:
+         requests:
+           storage: 100Gi
