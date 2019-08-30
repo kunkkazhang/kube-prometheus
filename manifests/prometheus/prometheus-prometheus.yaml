@@ -12,8 +12,8 @@ spec:
       namespace: monitoring
       port: web
   baseImage: uhub.service.ucloud.cn/uk8s_public/prometheus
-  nodeSelector:
-    kubernetes.io/os: linux
+  #nodeSelector:
+    #kubernetes.io/os: linux
   podMonitorSelector: {}
   replicas: 2
   secrets:
