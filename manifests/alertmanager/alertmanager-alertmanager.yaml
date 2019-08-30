@@ -7,8 +7,8 @@ metadata:
   namespace: monitoring
 spec:
   baseImage: uhub.service.ucloud.cn/uk8s_public/alertmanager
-  nodeSelector:
-    kubernetes.io/os: linux
+  #nodeSelector:
+    #kubernetes.io/os: linux
   replicas: 3
   securityContext:
     fsGroup: 2000
