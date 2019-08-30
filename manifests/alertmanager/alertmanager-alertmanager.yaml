@@ -18,11 +18,14 @@ spec:
   version: v0.18.0
   storage:
     volumeClaimTemplate:
-    - metadata:
-       name: alertmanager-database
+      apiVersion: v1
+      kind: PersistentVolumeClaim
+      metadata:
+         name: alertmanager-database
       spec:
-       accessModes: [ "ReadWriteOnce" ]
-       storageClassName: "udisk-ssd"
-       resources:
-         requests:
-           storage: 100Gi
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 100Gi
+        storageClassName: udisk-ssd
