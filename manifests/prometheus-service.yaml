@@ -6,7 +6,7 @@ metadata:
   name: prometheus-k8s
   namespace: monitoring
 spec:
-  type: NodePort
+  type: NodePort  ## add type 
   ports:
   - name: web
     port: 9090
